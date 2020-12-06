@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MinProject</string>
+    <string name="App">皮卡皮卡</string>
+    <string name="hint">请输入需要查找的内容</string>
+    <string name="audio">每日配音</string>
+    <string name="listen">每日听力</string>
+    <string name="sentence">每日一句</string>
+    <string name="history">历史记录</string>
+</resources>
