@@ -8,9 +8,8 @@
         android:label="@string/App"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-
-        android:theme="@style/Theme.MinProject.NoActionBar"
-        >
+        android:theme="@style/Theme.MinProject.NoActionBar">
+        <activity android:name=".ResultActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
