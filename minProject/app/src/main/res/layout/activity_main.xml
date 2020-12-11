@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f4f4"
     android:orientation="vertical"
 
     xmlns:android="http://schemas.android.com/apk/res/android">
+
 <LinearLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:id="@+id/partTop"
+    android:layout_height="wrap_content"
     android:background="#f4f4f4"
     android:orientation="vertical"
     >
@@ -58,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="3"
-        android:rowCount="3"
+        android:rowCount="1"
         android:background="#fff"
     >
         <Button
@@ -69,7 +71,7 @@
             android:backgroundTint="#fff"
             android:textColor="#000"
             android:textSize="14sp"
-
+            android:id="@+id/sentence"
             />
         <Button
             android:layout_height="wrap_content"
@@ -79,9 +81,10 @@
             android:textColor="#000"
             android:backgroundTint="#fff"
             android:textSize="14sp"
-
+            android:id="@+id/listen"
             />
         <Button
+            android:id="@+id/audio"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="@string/audio"
@@ -91,64 +94,59 @@
             android:textSize="14sp"
 
             />
-        <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_columnSpan="3"
-            android:layout_row="1"
-            android:lines="3"
-            android:text="6 Dec\nYou`re looking very smart today.\n你今天看起来很漂亮"
-            android:padding="10dp"
-            />
-
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="常速"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#fff"
-            android:textColor="#8c8c8c"
-            android:textSize="14sp"
-            android:drawableLeft="@drawable/speaker"
-
-            />
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="慢速"
-            android:layout_columnWeight="1"
-            android:textColor="#8c8c8c"
-            android:backgroundTint="#fff"
-            android:textSize="14sp"
-            android:drawableLeft="@drawable/speaker"
-            />
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="跟读"
-            android:layout_columnWeight="1"
-            android:textColor="#8c8c8c"
-            android:backgroundTint="#fff"
-            android:textSize="14sp"
-            android:drawableLeft="@drawable/micro"
-            />
     </GridLayout>
-    <TextView
-        android:layout_marginTop="20dp"
+
+
+
+</LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/history"
-        android:background="#fff"
-        android:padding="10dp"
-        android:textSize="16sp"
-        android:textColor="#000"
+        android:layout_below="@+id/partTop"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragmentContainer"
+            android:name="com.example.minproject.SentenceFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/sentence_fragment" />
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    android:background="#fff"
+    >
+    <ImageView
+        android:layout_margin="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#fff"
+        android:src="@drawable/big"
+        android:layout_weight="1"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#fff"
+        android:src="@drawable/ts"
+        android:text="翻译"
+        android:layout_weight="1"
+        android:layout_margin="6dp"
 
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#fff"
+        android:src="@drawable/zh"
+        android:text="帐号"
+        android:layout_weight="1"
+        android:layout_margin="6dp"
 
-
-
-
+        />
 </LinearLayout>
-    
-
-</LinearLayout>
+</RelativeLayout>

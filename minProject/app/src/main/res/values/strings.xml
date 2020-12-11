@@ -6,4 +6,5 @@
     <string name="listen">每日听力</string>
     <string name="sentence">每日一句</string>
     <string name="history">历史记录</string>
+    <string name="dic">英汉-汉英词典</string>
 </resources>

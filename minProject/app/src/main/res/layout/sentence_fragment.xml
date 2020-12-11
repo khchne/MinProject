@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="2dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:background="#fff"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:lines="3"
+        android:text="6 Dec\nYou`re looking very smart today.\n你今天看起来很漂亮"
+        android:padding="10dp"
+        />
+
+<LinearLayout
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+    <Button
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="常速"
+        android:backgroundTint="#fff"
+        android:textSize="14sp"
+        android:textColor="#8c8c8c"
+        android:drawableLeft="@drawable/speaker"
+        />
+    <Button
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="慢速"
+        android:textColor="#8c8c8c"
+        android:backgroundTint="#fff"
+        android:textSize="14sp"
+        android:drawableLeft="@drawable/speaker"
+        />
+    <Button
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="跟读"
+        android:textColor="#8c8c8c"
+        android:backgroundTint="#fff"
+        android:textSize="14sp"
+        android:drawableLeft="@drawable/micro"
+        />
+</LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/history"
+        android:background="#fff"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        />
+</LinearLayout>
