@@ -1,5 +1,6 @@
 package com.example.minproject;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -9,23 +10,25 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editText;
+    private TextView word;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    //todo
+        //todo
         /*
-        * 1、基本翻译 中——英 （是否可以选择语言
-        * 2、翻译页面展示 （跳转到另外一个界面
-        * 3、翻译界面展示的内容
-        * 4、是否能在主页面的底端添加固定按钮
-        * 5、是否有开启动画
-        *  */
+         * 1、基本翻译 中——英 （是否可以选择语言
+         * 2、翻译页面展示 （跳转到另外一个界面
+         * 3、翻译界面展示的内容
+         * 4、是否能在主页面的底端添加固定按钮
+         * 5、是否有开启动画
+         *  */
         setContentView(R.layout.activity_main);
         editText = findViewById(R.id.editText);
         editText.setOnKeyListener(new View.OnKeyListener() {
@@ -33,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER
                         && event.getAction() == KeyEvent.ACTION_UP
-                        && !editText.getText().toString().equals(""))
-                {
+                        && editText.getText() != null) {
+                    String word = editText.getText().toString();
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putCharSequence("word", word);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                 }
                 return false;
@@ -46,12 +52,24 @@ public class MainActivity extends AppCompatActivity {
         Button listen = findViewById(R.id.listen);
         Button audio = findViewById(R.id.audio);
 
+/*
+        ImageView dic = findViewById(R.id.dic);
+        ImageView tran = findViewById(R.id.tran);
+        ImageView account = findViewById(R.id.account);
+*/
+
         sentence.setOnClickListener(onClickListener);
         listen.setOnClickListener(onClickListener);
         audio.setOnClickListener(onClickListener);
+/*
+        dic.setOnClickListener(onClickListener);
+        tran.setOnClickListener(onClickListener);
+        account.setOnClickListener(onClickListener);
+*/
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
+        @SuppressLint("NonConstantResourceId")
         @Override
         public void onClick(View v) {
             FragmentManager fragmentManager = getFragmentManager();
@@ -68,10 +86,25 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.audio:
                     fragment = new AudioFragment();
                     break;
+/*
+                case R.id.dic:
+                    fragment = new MainFragment();
+                    break;
+                case R.id.tran:
+                    fragment = new TransactionFragment();
+                    break;
+                case R.id.account:
+                    fragment = new AccountFragment();
+                    break;
+*/
                 default:
                     break;
             }
+            /*if (v.getId() == R.id.dic || v.getId() == R.id.tran || v.getId() == R.id.account) {
+                fragmentTransaction.replace(R.id.fragmentContainerMain, fragment);
+            } else {
 
+            }*/
             fragmentTransaction.replace(R.id.fragmentContainer, fragment);
             fragmentTransaction.commit();
         }

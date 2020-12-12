@@ -1,104 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f4f4"
-    android:orientation="vertical"
+    android:background="#f4f4f4">
 
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-<LinearLayout android:layout_width="match_parent"
-    android:id="@+id/partTop"
-    android:layout_height="wrap_content"
-    android:background="#f4f4f4"
-    android:orientation="vertical"
-    >
-
-    <GridLayout
-
-        android:layout_width="wrap_content"
-        android:layout_height="66dp"
-        android:background="@drawable/bg_top"
-        android:rowCount="1"
-        android:columnCount="5"
-
-        >
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/left_pic"
-            android:background="#0000"
-            android:layout_column="0"
-            android:layout_gravity="center_vertical"
-            android:layout_margin="16dp"
-            />
-        <EditText
-            android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:background="#fff"
-            android:hint="@string/hint"
-            android:padding="6dp"
-            android:textColorHint="#ACABAB"
-            />
-
-        <ImageButton
-            android:layout_column="4"
-            android:layout_margin="16dp"
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#0000"
-            android:src="@drawable/camera" />
-    </GridLayout>
-
-    <GridLayout
+    <LinearLayout
+        android:id="@+id/partTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="1"
-        android:background="#fff"
-    >
-        <Button
-            android:layout_height="wrap_content"
+        android:background="#f4f4f4"
+        android:orientation="vertical">
+
+        <GridLayout
+
             android:layout_width="wrap_content"
-            android:text="@string/sentence"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#fff"
-            android:textColor="#000"
-            android:textSize="14sp"
-            android:id="@+id/sentence"
-            />
-        <Button
+            android:layout_height="66dp"
+            android:background="@drawable/bg_top"
+            android:columnCount="5"
+            android:rowCount="1"
+
+            >
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="16dp"
+                android:background="#0000"
+                android:src="@drawable/left_pic" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:background="#fff"
+                android:hint="@string/hint"
+                android:padding="6dp"
+                android:textColorHint="#ACABAB" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="4"
+                android:layout_margin="16dp"
+                android:background="#0000"
+                android:src="@drawable/camera" />
+        </GridLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/listen"
-            android:layout_columnWeight="1"
-            android:textColor="#000"
-            android:backgroundTint="#fff"
-            android:textSize="14sp"
-            android:id="@+id/listen"
-            />
-        <Button
-            android:id="@+id/audio"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/audio"
-            android:layout_columnWeight="1"
-            android:textColor="#000"
-            android:backgroundTint="#fff"
-            android:textSize="14sp"
+            android:background="#fff"
+            android:columnCount="3"
+            android:rowCount="1">
 
-            />
-    </GridLayout>
+            <Button
+                android:id="@+id/sentence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:backgroundTint="#fff"
+                android:text="@string/sentence"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/listen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:backgroundTint="#fff"
+                android:text="@string/listen"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:backgroundTint="#fff"
+                android:text="@string/audio"
+                android:textColor="#000"
+                android:textSize="14sp"
+
+                />
+        </GridLayout>
 
 
-
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -110,43 +107,47 @@
             android:id="@+id/fragmentContainer"
             android:name="com.example.minproject.SentenceFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/sentence_fragment" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_alignParentBottom="true"
-    android:background="#fff"
-    >
-    <ImageView
-        android:layout_margin="6dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#fff"
-        android:src="@drawable/big"
-        android:layout_weight="1"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#fff"
-        android:src="@drawable/ts"
-        android:text="翻译"
-        android:layout_weight="1"
-        android:layout_margin="6dp"
 
-        />
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#fff"
-        android:src="@drawable/zh"
-        android:text="帐号"
-        android:layout_weight="1"
-        android:layout_margin="6dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:orientation="horizontal">
 
-        />
-</LinearLayout>
+        <ImageView
+            android:id="@+id/dic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="#fff"
+            android:src="@drawable/big" />
+
+        <ImageView
+            android:id="@+id/tran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="#fff"
+            android:src="@drawable/ts"
+            android:text="翻译"
+
+            />
+
+        <ImageView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_weight="1"
+            android:backgroundTint="#fff"
+            android:src="@drawable/zh"
+            android:text="帐号"
+
+            />
+    </LinearLayout>
 </RelativeLayout>

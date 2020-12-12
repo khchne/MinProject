@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_top"
+        android:id="@+id/bg"
+        >
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/back"
+        android:padding="10dp"
+        />
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择语言"
+        android:textColor="#fff"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@id/back"
+        android:padding="10dp"
+        android:layout_marginTop="4dp"
+        />
+    <TextView
+        android:layout_below="@id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="English"
+        android:id="@+id/english"
+        android:textSize="26sp"
+        android:padding="12dp"
+        android:textColor="#C4000000"
+        />
+    <TextView
+        android:layout_below="@id/english"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="简体中文"
+        android:id="@+id/chinese"
+        android:textSize="26sp"
+        android:padding="12dp"
+        android:textColor="#C4000000"
+        />
+</RelativeLayout>
