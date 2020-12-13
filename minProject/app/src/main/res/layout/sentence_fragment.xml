@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:lines="3"
-        android:text="6 Dec\nYou`re looking very smart today.\n你今天看起来很漂亮"
+        android:text="13 Dec\nYou`re looking very smart today.\n你今天看起来很漂亮"
         android:padding="10dp"
         />
 

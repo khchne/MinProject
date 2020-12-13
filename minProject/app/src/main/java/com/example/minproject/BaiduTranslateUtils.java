@@ -18,26 +18,29 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class BaiDuTranslation {
-    private final static String APP_ID = "20201121000622397";
-    private final static String APP_SECRET = "fiEstHyQVjr1LC4Q4GBt";
-    private String resultTxt;
+public class BaiduTranslateUtils {
+    private final static String APP_ID = "20190405000284893";
+    private final static String APP_SECRET = "wkgqCTAAGQvHdTHjj8b3";
+
     private final static String url = "https://fanyi-api.baidu.com/api/trans/vip/translate";
 
-    public static void postToBaiDu(String query, final TextView resultView) {
+    public static void postToBaidu(String query, final TextView resultView) {
 
         OkHttpClient client = new OkHttpClient();
         FormBody.Builder requestBuild = new FormBody.Builder();
-        RequestBody requestBody = requestBuild.build();
+        RequestBody requestBody = requestBuild
+                .build();
 
-        final Request request = new Request.Builder().url(getRequestUrl(query))
+        final Request request = new Request.Builder()
+                .url(getRequestUrl(query))
                 .post(requestBody)
                 .addHeader("Content-Type", "application/x-www-form-urlencoded")
                 .build();
+
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                Log.d("MinProject", "连接失败" + e.getLocalizedMessage());
+                Log.d("MainActivityPost", "连接失败" + e.getLocalizedMessage());
             }
 
             @Override
@@ -55,7 +58,6 @@ public class BaiDuTranslation {
                     JSONArray transResultArray = new JSONArray(transResult);
                     final JSONObject resultObject = transResultArray.getJSONObject(0);
 
-
                     resultView.post(new Runnable() {
                         @Override
                         public void run() {
@@ -70,10 +72,11 @@ public class BaiDuTranslation {
                     e.printStackTrace();
                 }
 
-                Log.e("BaiDu", "get  " + result);
+                Log.e("Baidu", "get  " + result);
             }
 
         });
+
     }
 
     public static String getRequestUrl(String query) {
@@ -102,4 +105,6 @@ public class BaiDuTranslation {
             return "";
         }
     }
+
+
 }

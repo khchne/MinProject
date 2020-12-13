@@ -10,13 +10,15 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editText;
-    private TextView word;
+    private TextView resultView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
          *  */
         setContentView(R.layout.activity_main);
         editText = findViewById(R.id.editText);
+        resultView = findViewById(R.id.result);
         editText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -38,10 +41,14 @@ public class MainActivity extends AppCompatActivity {
                         && event.getAction() == KeyEvent.ACTION_UP
                         && editText.getText() != null) {
                     String word = editText.getText().toString();
+                    word.replace("\n\r", "");
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    BaiduTranslateUtils.postToBaidu(word, resultView);
+
                     Bundle bundle = new Bundle();
                     bundle.putCharSequence("word", word);
                     intent.putExtras(bundle);
+
                     startActivity(intent);
                 }
                 return false;
@@ -66,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
         tran.setOnClickListener(onClickListener);
         account.setOnClickListener(onClickListener);
 */
+        ImageButton takePhoto = findViewById(R.id.imageButton);
+        takePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TakePhotoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
